@@ -1,6 +1,7 @@
 import time
 import os
 
+from datetime import datetime
 from bookingNaver import getAvailableSchedule
 from sms import send_message
 
@@ -11,6 +12,7 @@ if __name__ == '__main__':
     itemid = '4692569'
     print('> placeid: ', placeid, ' itemid: ', itemid)
     while True:
+        print('> request: ' + str(datetime.now()))
         try:
             availableSchedule = getAvailableSchedule(placeid=placeid, itemid=itemid, startDate='2023-01-14', endDate='2023-03-01', person=2)
             availableSchedule = sorted(availableSchedule)
